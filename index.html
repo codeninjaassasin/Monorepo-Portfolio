@@ -46,23 +46,29 @@
 
   /* ---- hero ---- */
   .hero{padding:104px 0 92px;text-align:center}
+  header.hero{position:relative;overflow:hidden}
+  header.hero::before{content:"";position:absolute;left:50%;top:6%;width:min(680px,90vw);height:680px;transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(227,169,74,.15),transparent 62%);pointer-events:none;z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-avail{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:9px 18px;border:1px solid var(--hair-strong);border-radius:100px;
+    font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+  .hero-avail .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(127,199,182,.16)}
+  .hero-cta{font-family:"Brush Script MT","Segoe Script","Snell Roundhand",cursive;font-size:clamp(32px,5.5vw,58px);color:var(--soft);margin-top:38px;line-height:1.02}
+  .hero-cta .ital{color:var(--accent)}
   .rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
   @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-  .avatar{width:126px;height:126px;border-radius:50%;margin:0 auto 30px;
-    border:1px solid var(--hair-strong);background:radial-gradient(circle at 50% 36%,#2C2418,#191309);
-    display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .avatar .ini{font-family:"Instrument Serif",Georgia,serif;font-size:42px;color:#EADFC9;line-height:1}
-  .avatar .cap{font-family:"JetBrains Mono",monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#8B7F6C;margin-top:5px}
+  .avatar{width:200px;height:200px;border-radius:50%;margin:0 auto 34px;position:relative;
+    border:1px solid var(--hair-strong);background:radial-gradient(circle at 50% 34%,#34291A,#171009);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    box-shadow:0 0 0 9px rgba(227,169,74,.06), 0 26px 64px rgba(0,0,0,.55)}
+  .avatar .ini{font-family:"Instrument Serif",Georgia,serif;font-size:70px;color:#EADFC9;line-height:1}
+  .avatar .cap{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#8B7F6C;margin-top:7px}
   .hero .eyebrow{margin-bottom:18px}
-  .name{font-family:"Instrument Serif",Georgia,serif;font-weight:400;
-    font-size:clamp(60px,11vw,104px);line-height:.94;letter-spacing:-.01em;margin:0}
-  .name .ch{display:inline-block;animation:chUp .8s cubic-bezier(.2,.75,.2,1) both}
-  .name .ital{font-style:italic;color:var(--accent)}
-  @keyframes chUp{from{opacity:0;transform:translateY(.5em)}to{opacity:1;transform:none}}
-  .name .ch:nth-child(1){animation-delay:.06s}.name .ch:nth-child(2){animation-delay:.11s}
-  .name .ch:nth-child(3){animation-delay:.16s}.name .ch:nth-child(4){animation-delay:.21s}
-  .name .ch:nth-child(6){animation-delay:.29s}.name .ch:nth-child(7){animation-delay:.34s}
-  .name .ch:nth-child(8){animation-delay:.39s}
+  .name{font-family:"Brush Script MT","Segoe Script","Bradley Hand","Snell Roundhand",cursive;font-weight:400;
+    font-size:clamp(80px,15vw,172px);line-height:.88;letter-spacing:.01em;margin:0;padding:0 .1em .06em;
+    background:linear-gradient(176deg,#F8ECD4 0%,#E3A94A 74%,#C58A32 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .name .ital{color:inherit}
 
   .rotline{height:1.5em;margin-top:22px;font-size:clamp(20px,3vw,27px);text-align:center}
   .rotline .typed{color:var(--soft);font-weight:500;text-transform:capitalize}
@@ -110,6 +116,8 @@
   .trow .co h3{margin:0;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:26px;letter-spacing:-.005em;line-height:1.08}
   .trow .co .rl{margin-top:2px;font-size:13px;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
   .trow .co p{margin:12px 0 0;color:var(--muted);font-size:15px;max-width:58ch;line-height:1.6}
+  .trow-edu{margin-top:14px;border-top:1px solid var(--hair-strong)}
+  .trow-edu .rl{color:var(--teal)}
   .trow .loc{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--faint);text-align:right;white-space:nowrap;padding-top:6px}
   @media (max-width:680px){
     .thead{display:none}
@@ -204,8 +212,9 @@
       <div class="avatar rise" title="Add a headshot — replace with an <img>">
         <span class="ini">RR</span><span class="cap">Portrait</span>
       </div>
-      <h1 class="name" aria-label="Ryan Ray"><span class="ch">R</span><span class="ch">y</span><span class="ch">a</span><span class="ch">n</span> <span class="ch ital">R</span><span class="ch ital">a</span><span class="ch ital">y</span></h1>
+      <h1 class="name rise" aria-label="Ryan R Ray">Ryan <span class="ital">R</span> Ray</h1>
       <div class="rotline"><span class="typed">a software engineer</span><i class="cr"></i></div>
+      <div class="hero-avail rise"><span class="dot"></span>Available now · Open to Senior &amp; Staff roles · Remote, US</div>
       <p class="intro rise">Nearly a decade building software for the physical world — where a bug is a locked door, a missed dose, or a mis-counted ton of carbon.</p>
 
       <div class="band">
@@ -214,6 +223,8 @@
         <div class="cell"><div class="n">03</div><div class="k label">Domains</div></div>
         <div class="cell"><div class="n">BS</div><div class="k label">Math &amp; CS</div></div>
       </div>
+
+      <div class="hero-cta rise">Let's build something that <span class="ital">lasts.</span></div>
     </div>
   </header>
 
@@ -260,6 +271,19 @@
         </div>
         <div class="loc">Scottsdale, AZ</div>
       </div>
+
+      <div class="trow trow-edu">
+        <div class="yr">B.S.</div>
+        <div class="co">
+          <span class="cologo"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wgARCABkAGQDASIAAhEBAxEB/8QAHAAAAgMBAQEBAAAAAAAAAAAAAAUCBAYBBwMI/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/2gAMAwEAAhADEAAAAfy6MYdutHrCBRGESly9IXl6RQjfkLi+Jendj6/VRld4lEv8WnG9MoaFV6bnPk0dCt1aBcC/K7q/V6MMeh/HMwRrqWrnrG7jmJmDFNmXsD7X5wmaLx26X9As2PfvlnX2t4xnrWkoyZizf++tdW7fHYx6N5xs8ZmZQuHr9DEZ99PoVjPoraxJLFaXJOMKPItLrHKWDM1prxodeyzjQFY0KV9ZkK+swV9ZlKxoDADp0AAAAAAAAAA//8QAIhAAAQMFAAMBAQEAAAAAAAAAAAMEEgECBRETBhQhFRYi/9oACAEBAAEFAqJ7I/IENECBDdYbIEPsPkDmVt3SBHVIRKWarAhsrZshsj/mGilmjkQ2R+Q0UsIarAuT+w2VsFsAskwhqkNHOpWzRAh8gUsIEfvLda2aP23v8w6aUtTonsgQ0QIFLJEftLCtmhusozXqpjXQtDpkL6ZLIx2arQ5xGNyXGuKaX2ejjFbXOOQpco61b+cyqn+bjrhfHMl1HiXrivj3qZPK4y7HZHRExeMSfWY9H3HLXCN3eTa4vT9FG/07mqCyS7FoydM8FVDyBham6yF9V/H1fJlL3OXiRPH09o43H3t8j69b8oyeo5Btu3JYFojfinOVxtV8g1dpuPJU8eu2ve5OzG5nOW2fowoQOZD5z0Us1VCiNGrb1aNq2JXMXCaVyDr07n1KN6PnVtlV+Rz2Q+cyGjmcyqZz2QOZz+c9HI5nM5nM5nM5nM5nM5nM5HM5nM5nM5nM5nM5nM5nM0aNGjRo0aNGjRo0f//EAB8RAQADAAEEAwAAAAAAAAAAAAABERICAxAhQTBRYf/aAAgBAwEBPwHLLLLLLLLLLKYZZTFdq7VbjUsuUVCfx59vaI+3T4+bZUpm2GGVKUpSlK+D/8QAHhEBAAMAAgIDAAAAAAAAAAAAAAEREgIhAzEQMEH/2gAIAQIBAT8ByyyyyyyyyyyniyymK+Kt0zbhU9Qy5xUJ99S7/Vd0iJn28XDu2VKTxthhHBSlKUpSvo//xAA3EAACAQIDBQUFBgcAAAAAAAABAgMAEQQSIRATIjFBMlFhocEFFCBCcSMwgZGx4TNQUlOi8PH/2gAIAQEABj8C+4FW+ACrUdt6vttVtulePfs1q5rwrTlWlaU+JurRoRqCLH6V41rs0rx22PLaFQZr91fSlwdrLJwgolrjpf8AI+VK6qU+V0Pyt/vrWu2/wWq1JNC2SRNQRWaaOXCSaknDqGBN+4kWrCDDSNleGy7xdTqw9KxryILOHZG5ckvbyG29Ddx/aKLsVQlz/lS4maVlSS/ZI7VgbcvGltM6MSV5jv51HFFKWmMmQg9KWOFQFXqVF2+tAtIEkZhvBmtu9NaNsTl7Krb9TSRrIVmCqot89l10/Cgih7wnMrHnl5j9ajjOKL4XE/wcvEXuCCNB51PhWBBjPXu24tpJHTcQmbhW99Rp51BhHdkieQDh6E6XrFYP3kw7vMEkcaEjv7qlw2L3mHkjV2Nh1VSfSjjZpN1GXyIyxjeOfr60vu7SHEmQJuX636g0cNPLIzocrvGBZT6+VRYGaThmHBKguGVhoaZGGaNuQI6D9qjAZMdDE1sPNKOFD1Un5T5VJLIxMrojNdcuW6jS3hs1r2lqq58KyLmYC5uulYCR2RRv10zjQAi5Ne1bFdRJY5hrc6U/vbZMbh8PIscv91chGU+PdWHwqsq4rCyMQjG2dW7vGsPjZgAYplIiJ4mtryqabDMs2HlcusmYaX6N3fjXsrK6mHBxJEZSbA5eZ86eQsiZdO2DmvppT3tiMHiEjMqIQbHLa48RTbqb3hMkYEv9XANg+E9hZrm+8W9xbS3n5V9pbNx5gRqdOGx+tLxKJg5JFtSNLetYfIy5wlnABve5/aoCLHDX4wgtp+QrCFnSSK43uWOw7XnpTGOxW3T/AIP5t//EACUQAAICAgICAgIDAQAAAAAAAAERACExQVFhcaGBkRDxMLHB0f/aAAgBAQABPyGxSXqEUqpUpOBiFygY/UpfqFzniUM1C3CB6IQBAX3CncQQIiv9iHH5gETJ54i5BuDBsHUU9J4nMEdVWIlQMRPJuJZAuDZ/qObFzGLEe5X6f+JUQaJ9RdD4nIP9gW4ZwfULHDQNjnuIPEJxxVgS0a++IMjw6g+ROEQAcjmYr6QOxzqCzNR5wQXPU3gMGOcCMAAGSeJjboYRHggAJsBSz8tyRyvfj83Yu9jhFNFiEicQkh2JUUviMQeTNrW4DIaA9QpNZgf3CfSBy0WF5nd6QWADBByEIAEWBYBPlmeYMzsK0UrfuAyJPEFCeQDiGMLbneiAQ8LtwxzWwxIxAZeF3Agoi4DAFTseIQUMqENANZ8/Gpgkb6hJLovyYWNTW3ICuVV4MJvMTdgAiIYvwnzEKkONhko2HZI7jxosyabRo3crhMiZACgJYoUA/qKxH9gP0RDwlE7BzE3CFAIBkaMK7OoC6KN6jSpQwbW9Cd2oAqRhk0HO8D3BX9DiOGVRKm+9wqqkwJsQGbCS2Iw1R4eiACcYHpIQ7hhBRHcSoSSlAqjVTuFxtHWyCOILbBJYHtgZLjvisxwK+IA2Ln1Q4pGBnuYAzlAwjCEyCCxQvfcNYpZFXELtwPsS+DdZ2+OIBh+1rCSRogRjjEGgzoomPAVk8iAUOYAEnYbho0gZHD5YbTpoPiAGVKO0UN0SX1GNVQVBtlGBPqGVnsCBZ76h4IWAYEySqBCCYnBcSc/1LCyOVSKCi+mbQAlPNp+vl4fOIP7+jXU0s84bKKK2ZpGoMRji3ItfwfuPRRIgwzCXyLcYZQxQwH+gQAdzQoRp7lKUEqXmUuMJnwQuhLUogT3Oj8LCpwmHcrAvic5zhfEvMO5wg5/l9/xHOZfwbmEWLFixYsWLFixYsWf/2gAMAwEAAgADAAAAEFFBDPHPYi8mu8T6150vv/RqpLi3j7I9YVmQ5h4YiiAPP/vPPvv/xAAhEQACAgEEAgMAAAAAAAAAAAABEQAhURAgMaEwwUGR4f/aAAgBAwEBPxDxgAKEpbQg1KxA3ErEA0EGgY0GaINlvj3CGQYfdjqLg6hCwSKHv8hVIcjn62Mogs3EznuBS/Cmjf8A/8QAJREAAgECBAYDAAAAAAAAAAAAAREAITEQUXGhMEFhkcHwILHh/9oACAECAQE/EOH/APIEoGwpNSmUHKEquNoAQCBpGE5yOn3BqCAvMIMoFYHeo6GmkzVM+uT92jAGih3Z/IVSFxft2830xthBU2ZrPPf2kQW+CKD5/wD/xAAkEAEAAgICAgEFAQEAAAAAAAABESEAMUFRYXHwgZGhscHR4f/aAAgBAQABPxBEGASqflkIITbi+LxgGB6N+sF4FDLxrWRApvkwkEIXX9YSYotDeBQKchvxgEIBKerd4sT/AJ84AEBBhvevGU4IPMYotjxGsATSRalKXlQKRqHPrrHqcCb+j+/HJBZHGoecR0GALk84yHLLXM9f9yCdcz2HxgsBEPTUr7ypERS8m76xIipIx3EV6xIhaypw/HGQ0LB+XvDRA6cQBIoCO0198SIIuVwiv639NYD4NN4E6EKOq36/eDChMkfpjvnzY3495IaIl/t8v8YpSSAXsgifmsI5kpgdnX218BCyWrND1Vaukkk11KCfff2+mS2whI594Fsjs05KQJa8cQeO/wDNtfEr8d1hwNYg8+8ubUl9xGViyRPIvWNBAEkeI7xapRW9JzOD80UW0AtvXf4Fh4YcMuJtFCnMpBQIRCRYjFyO9RLIlBUowQgKCaAyeY49YwlyVAayAqC42MuRH1P79YN27CduKLRClz4yQyXp4TkgJG96847bCbT4rGo9HoEJ0nCNI9OMmWsEliJ6KB4vAhg6fMBboAbCW8qn4nmVEqKDqQucwiCf1gHh3jAaHY37/wAwDORbMkRWHYEDYgpphcplSxQlgUYQIgTioEQvktA+0pGlVlAglTKirBax4xRqRVRJImBS3gcLnhs9hKxdAEDoDWzdQSChNUoIUETwEkACpVWXNvcLFgtShPdTMgilPpqKcC8FZ0qUb0XH6JtQaZtGjejWJOkdoK5IRRKPNuM+wiTlwWG7IHxhtm7tUxOEr0VltCy2DTWKUNmBcWTaliNIgxRswodqR8cRDIkIAUwfEcPjIBKJIw3M1rXo28sSpFmSMSQrljizQBCSjARkskXKIklMQBICRKi1wM+qOykQA6wMIAImwTEsgNWVTziT6pDf5wbMK9cesNxkHhMUpf0x9l1un2QIoomIayr4mcyFSKwFnD2R0bVJ6btQXdrvCuhwAPLyqZIhMdCSDaSAQAFimGEKebT1Cy6CSmco8mBYym9JaCi8Yh7cJkMqrkAK5SSSTopAQBYzLKomtxouwwwylLViI2YB2XmGsNgopOLck2j4vBIkJPneMAiDy/rJcDY3gZ4Ws5QARau2gOSCgDcIEBFxblcxpKsqZwZGolhH6wi4B9TJEwRyKz9cBuuQgrjkSBK14QK+AmminRQtCFFXhgFvYgGyZlCmYrBJEeKr84TghBT/ALkKDl9tfjETXs5OSJU185wMYeH/AHAwjXBguiAdH8yNopvBIEVt595FBW6fOSUJZscesh2ScdYw6J1OIAFtvnIocu8CISmnrIOz7YCJJXHeMrayygg/WEoEETGQgBZ+cgQC1T/MiCi/1hEw4kMUsxvnvEIQWZCJjAIiLcCIHrCMk1hDisbQFYzZDEBRbvNIi8BEpfGEVk3hQJPWRyhlZWT2mDusnNax1xhPEbyM1vI4rL5jzlbXOT7MU4z/2Q==" alt="Lincoln College logo"></span>
+          <div class="cotext">
+            <h3>Lincoln College</h3>
+            <div class="rl">Education</div>
+            <p>B.S. — Mathematics &amp; Computer Science.</p>
+          </div>
+        </div>
+        <div class="loc">Degree</div>
+      </div>
     </div>
   </section>
 
@@ -280,61 +304,56 @@
       <div class="shead"><div class="skick"><span class="knum">03</span><span class="krule"></span></div><div class="titlerow"><h2>Toolbox</h2><span class="aside">Self-assessed</span></div></div>
       <div class="skills">
         <div class="scol">
-          <h4 class="label">Languages</h4>
-          <div class="srow"><span class="nm">SQL</span><span class="meter"><span class="fill" style="--w:94%"></span></span><span class="yr">09 yrs</span></div>
-          <div class="srow"><span class="nm">Bash / Shell</span><span class="meter"><span class="fill" style="--w:76%"></span></span><span class="yr">07 yrs</span></div>
-          <div class="srow"><span class="nm">TypeScript / JS</span><span class="meter"><span class="fill" style="--w:66%"></span></span><span class="yr">06 yrs</span></div>
-          <div class="srow"><span class="nm">Python</span><span class="meter"><span class="fill" style="--w:46%"></span></span><span class="yr">04 yrs</span></div>
-          <div class="srow"><span class="nm">Elixir</span><span class="meter"><span class="fill" style="--w:36%"></span></span><span class="yr">03 yrs</span></div>
-          <div class="srow"><span class="nm">Go</span><span class="meter"><span class="fill" style="--w:24%"></span></span><span class="yr">02 yrs</span></div>
+          <h4 class="label">Languages &amp; Frameworks</h4>
+          <div class="srow"><span class="nm">SQL</span><span class="meter"><span class="fill" style="--w:94%"></span></span><span class="yr">09 y</span></div>
+          <div class="srow"><span class="nm">HTML / CSS</span><span class="meter"><span class="fill" style="--w:84%"></span></span><span class="yr">08 y</span></div>
+          <div class="srow"><span class="nm">Bash / Shell</span><span class="meter"><span class="fill" style="--w:82%"></span></span><span class="yr">08 y</span></div>
+          <div class="srow"><span class="nm">TypeScript / JS</span><span class="meter"><span class="fill" style="--w:76%"></span></span><span class="yr">07 y</span></div>
+          <div class="srow"><span class="nm">Elixir</span><span class="meter"><span class="fill" style="--w:68%"></span></span><span class="yr">06 y</span></div>
+          <div class="srow"><span class="nm">Python</span><span class="meter"><span class="fill" style="--w:66%"></span></span><span class="yr">06 y</span></div>
+          <div class="srow"><span class="nm">Phoenix / Node</span><span class="meter"><span class="fill" style="--w:56%"></span></span><span class="yr">05 y</span></div>
+          <div class="srow"><span class="nm">React</span><span class="meter"><span class="fill" style="--w:54%"></span></span><span class="yr">05 y</span></div>
+          <div class="srow"><span class="nm">Go</span><span class="meter"><span class="fill" style="--w:46%"></span></span><span class="yr">04 y</span></div>
+          <div class="srow"><span class="nm">Ruby</span><span class="meter"><span class="fill" style="--w:44%"></span></span><span class="yr">04 y</span></div>
+          <div class="srow"><span class="nm">Java</span><span class="meter"><span class="fill" style="--w:38%"></span></span><span class="yr">03 y</span></div>
+          <div class="srow"><span class="nm">Rust</span><span class="meter"><span class="fill" style="--w:26%"></span></span><span class="yr">02 y</span></div>
         </div>
         <div class="scol">
-          <h4 class="label">Systems &amp; Data</h4>
-          <div class="srow"><span class="nm">PostgreSQL</span><span class="meter"><span class="fill" style="--w:86%"></span></span><span class="yr">08 yrs</span></div>
-          <div class="srow"><span class="nm">REST &amp; GraphQL</span><span class="meter"><span class="fill" style="--w:76%"></span></span><span class="yr">07 yrs</span></div>
-          <div class="srow"><span class="nm">Phoenix / Node</span><span class="meter"><span class="fill" style="--w:56%"></span></span><span class="yr">05 yrs</span></div>
-          <div class="srow"><span class="nm">Redis</span><span class="meter"><span class="fill" style="--w:56%"></span></span><span class="yr">05 yrs</span></div>
-          <div class="srow"><span class="nm">Event pipelines</span><span class="meter"><span class="fill" style="--w:46%"></span></span><span class="yr">04 yrs</span></div>
-          <div class="srow"><span class="nm">Kafka</span><span class="meter"><span class="fill" style="--w:36%"></span></span><span class="yr">03 yrs</span></div>
+          <h4 class="label">Data &amp; Infrastructure</h4>
+          <div class="srow"><span class="nm">PostgreSQL</span><span class="meter"><span class="fill" style="--w:92%"></span></span><span class="yr">09 y</span></div>
+          <div class="srow"><span class="nm">Docker</span><span class="meter"><span class="fill" style="--w:78%"></span></span><span class="yr">07 y</span></div>
+          <div class="srow"><span class="nm">AWS</span><span class="meter"><span class="fill" style="--w:76%"></span></span><span class="yr">07 y</span></div>
+          <div class="srow"><span class="nm">Redis</span><span class="meter"><span class="fill" style="--w:66%"></span></span><span class="yr">06 y</span></div>
+          <div class="srow"><span class="nm">Kafka</span><span class="meter"><span class="fill" style="--w:56%"></span></span><span class="yr">05 y</span></div>
+          <div class="srow"><span class="nm">Kubernetes</span><span class="meter"><span class="fill" style="--w:56%"></span></span><span class="yr">05 y</span></div>
+          <div class="srow"><span class="nm">MySQL</span><span class="meter"><span class="fill" style="--w:54%"></span></span><span class="yr">05 y</span></div>
+          <div class="srow"><span class="nm">Elasticsearch</span><span class="meter"><span class="fill" style="--w:46%"></span></span><span class="yr">04 y</span></div>
+          <div class="srow"><span class="nm">Terraform</span><span class="meter"><span class="fill" style="--w:46%"></span></span><span class="yr">04 y</span></div>
+          <div class="srow"><span class="nm">RabbitMQ</span><span class="meter"><span class="fill" style="--w:44%"></span></span><span class="yr">04 y</span></div>
+          <div class="srow"><span class="nm">DynamoDB</span><span class="meter"><span class="fill" style="--w:36%"></span></span><span class="yr">03 y</span></div>
+          <div class="srow"><span class="nm">GCP</span><span class="meter"><span class="fill" style="--w:36%"></span></span><span class="yr">03 y</span></div>
         </div>
         <div class="scol">
-          <h4 class="label">Platform &amp; Practice</h4>
-          <div class="srow"><span class="nm">Code review</span><span class="meter"><span class="fill" style="--w:86%"></span></span><span class="yr">08 yrs</span></div>
-          <div class="srow"><span class="nm">Testing &amp; observ.</span><span class="meter"><span class="fill" style="--w:76%"></span></span><span class="yr">07 yrs</span></div>
-          <div class="srow"><span class="nm">AWS</span><span class="meter"><span class="fill" style="--w:66%"></span></span><span class="yr">06 yrs</span></div>
-          <div class="srow"><span class="nm">Docker / CI-CD</span><span class="meter"><span class="fill" style="--w:66%"></span></span><span class="yr">06 yrs</span></div>
-          <div class="srow"><span class="nm">Terraform</span><span class="meter"><span class="fill" style="--w:36%"></span></span><span class="yr">03 yrs</span></div>
-          <div class="srow"><span class="nm">Mentorship</span><span class="meter"><span class="fill" style="--w:36%"></span></span><span class="yr">03 yrs</span></div>
+          <h4 class="label">Practice &amp; Craft</h4>
+          <div class="srow"><span class="nm">System design</span><span class="meter"><span class="fill" style="--w:86%"></span></span><span class="yr">08 y</span></div>
+          <div class="srow"><span class="nm">Code review</span><span class="meter"><span class="fill" style="--w:84%"></span></span><span class="yr">08 y</span></div>
+          <div class="srow"><span class="nm">Domain modeling</span><span class="meter"><span class="fill" style="--w:82%"></span></span><span class="yr">08 y</span></div>
+          <div class="srow"><span class="nm">Testing / TDD</span><span class="meter"><span class="fill" style="--w:82%"></span></span><span class="yr">08 y</span></div>
+          <div class="srow"><span class="nm">API design</span><span class="meter"><span class="fill" style="--w:76%"></span></span><span class="yr">07 y</span></div>
+          <div class="srow"><span class="nm">Observability</span><span class="meter"><span class="fill" style="--w:74%"></span></span><span class="yr">07 y</span></div>
+          <div class="srow"><span class="nm">CI / CD</span><span class="meter"><span class="fill" style="--w:72%"></span></span><span class="yr">07 y</span></div>
+          <div class="srow"><span class="nm">Event-driven arch</span><span class="meter"><span class="fill" style="--w:66%"></span></span><span class="yr">06 y</span></div>
+          <div class="srow"><span class="nm">Incident response</span><span class="meter"><span class="fill" style="--w:64%"></span></span><span class="yr">06 y</span></div>
+          <div class="srow"><span class="nm">Agile / Scrum</span><span class="meter"><span class="fill" style="--w:62%"></span></span><span class="yr">06 y</span></div>
+          <div class="srow"><span class="nm">Mentorship</span><span class="meter"><span class="fill" style="--w:56%"></span></span><span class="yr">05 y</span></div>
+          <div class="srow"><span class="nm">Tech writing</span><span class="meter"><span class="fill" style="--w:54%"></span></span><span class="yr">05 y</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="education" class="page">
-    <div class="wrap">
-      <div class="shead"><div class="skick"><span class="knum">04</span><span class="krule"></span></div><div class="titlerow"><h2>Education</h2></div></div>
-      <div class="edu">
-        <div class="yr">B.S.</div>
-        <div class="co">
-          <span class="cologo"><img src="data:image/jpeg;base64,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" alt="Lincoln College logo"></span>
-          <div class="cotext">
-            <h3>Lincoln College</h3>
-            <div class="deg">Mathematics &amp; Computer Science</div>
-          </div>
-        </div>
-        <div class="loc">Degree</div>
-      </div>
-    </div>
-  </section>
 
-  <section id="contact" class="closing page">
-    <div class="wrap">
-      <h2>Let's build something<br>that <span class="ital">lasts.</span></h2>
-      <div class="avail"><span class="dot"></span>Available now · Remote, US</div>
-    </div>
-  </section>
-
-  <footer>
+  <footer id="contact">
     <div class="wrap row">
       <span class="cred">Ryan Ray — Software Engineer · © 2026</span>
       <div class="social">
